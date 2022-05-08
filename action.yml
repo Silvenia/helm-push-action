@@ -1,0 +1,27 @@
+name: 'Helm Push'
+description: ''
+inputs:
+  registryHost:
+    description: ''
+    required: true
+  registryUserName:
+    description: ''
+    required: true
+  registryPassword:
+    description: ''
+    required: true    
+  chartDir:
+    description: ''
+    required: true        
+  repo:
+    description: ''
+    required: true            
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.registryHost }}
+  - ${{ inputs.registryUserName }}
+  - ${{ inputs.registryPassword }}  
+  - ${{ inputs.chartDir }}    
+  - ${{ inputs.repo }}        
